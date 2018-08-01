@@ -48,7 +48,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="外语" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2g-KS-m7H">
-                        <rect key="frame" x="251" y="36" width="94" height="21"/>
+                        <rect key="frame" x="230" y="36" width="115" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学校" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed5-UU-RAU">
+                        <rect key="frame" x="230" y="7" width="121" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -63,6 +70,7 @@
                 <outlet property="englishLabel" destination="u2g-KS-m7H" id="e3O-pP-IGg"/>
                 <outlet property="mathLabel" destination="b1u-f3-AY1" id="pQ6-ba-xDY"/>
                 <outlet property="nameLabel" destination="gpI-G1-Xvs" id="W20-ru-P7g"/>
+                <outlet property="schoolLabel" destination="Ed5-UU-RAU" id="pUE-EI-W18"/>
             </connections>
             <point key="canvasLocation" x="79.5" y="-59"/>
         </tableViewCell>

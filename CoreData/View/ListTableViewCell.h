@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Student+CoreDataClass.h"
+#import "School+CoreDataClass.h"
 
 @interface ListTableViewCell : UITableViewCell
 

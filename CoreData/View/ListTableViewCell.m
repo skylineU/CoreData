@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *chineseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mathLabel;
 @property (weak, nonatomic) IBOutlet UILabel *englishLabel;
+@property (weak, nonatomic) IBOutlet UILabel *schoolLabel;
 
 
 @end
@@ -27,6 +28,7 @@
     self.chineseLabel.text = [NSString stringWithFormat:@"语文:%d",model.chinese];
     self.mathLabel.text = [NSString stringWithFormat:@"数学:%d",model.math];
     self.englishLabel.text = [NSString stringWithFormat:@"英语:%d",model.english];
+    self.schoolLabel.text = model.studentSchool.schoolName;
     
 }
 

@@ -17,6 +17,7 @@
                 <outlet property="englishTF" destination="RB4-GD-TNu" id="gL6-Fd-nzQ"/>
                 <outlet property="mathTF" destination="1SM-1a-MOk" id="4gT-Oe-Iue"/>
                 <outlet property="nameTF" destination="5D1-c6-r7b" id="h9w-Wo-M7W"/>
+                <outlet property="schoolTF" destination="sbh-gK-89N" id="VqI-C3-6IR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,6 +56,13 @@
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="外语" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RB4-GD-TNu">
                     <rect key="frame" x="49" y="295" width="282" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="学校" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbh-gK-89N">
+                    <rect key="frame" x="49" y="350" width="282" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

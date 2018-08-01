@@ -8,6 +8,7 @@
 
 #import "EnterDataViewController.h"
 #import "Student+CoreDataClass.h"
+#import "School+CoreDataClass.h"
 #import "AppDelegate.h"
 
 @interface EnterDataViewController ()
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *chineseTF;
 @property (weak, nonatomic) IBOutlet UITextField *mathTF;
 @property (weak, nonatomic) IBOutlet UITextField *englishTF;
+@property (weak, nonatomic) IBOutlet UITextField *schoolTF;
 
 @property(nonatomic,strong) AppDelegate *app;
 
@@ -35,6 +37,7 @@
         _chineseTF.text = [NSString stringWithFormat:@"%d",_stu.chinese];
         _mathTF.text = [NSString stringWithFormat:@"%d",_stu.math];
         _englishTF.text = [NSString stringWithFormat:@"%d",_stu.english];
+        _schoolTF.text = _stu.studentSchool.schoolName;
     }
 }
 
@@ -61,6 +64,10 @@
         NSLog(@"请输入英语成绩");
         return;
     }
+    if (_schoolTF.text.length <= 0) {
+        NSLog(@"请输入学校");
+        return;
+    }
     
     if (_stu) {// 修改
         // 数据量大的话，内存会溢出。这时用NSBatchUpdateRequest来做批量更新
@@ -69,6 +76,10 @@
         _stu.chinese = [_chineseTF.text intValue];
         _stu.math = [_mathTF.text intValue];;
         _stu.english = [_englishTF.text intValue];
+        // 这样的方式创建 关联数据库
+        School *sch = [[School alloc] initWithContext:_app.persistentContainer.viewContext];
+        sch.schoolName = _schoolTF.text;
+        _stu.studentSchool = sch;
         
     } else { // 插入数据
         Student *stu = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:_app.persistentContainer.viewContext];
@@ -77,6 +88,10 @@
         stu.chinese = [_chineseTF.text intValue];
         stu.math = [_mathTF.text intValue];;
         stu.english = [_englishTF.text intValue];
+        // 这样的方式创建 关联数据库
+        School *sch = [[School alloc] initWithContext:_app.persistentContainer.viewContext];
+        sch.schoolName = _schoolTF.text;
+        stu.studentSchool = sch;
         
     }
     
@@ -90,6 +105,30 @@
     _chineseTF.text = @"";
     _mathTF.text = @"";
     _englishTF.text = @"";
+    _schoolTF.text = @"";
+}
+
+// 异步插入数据
+- (void)asynchronousInsertData{
+    /**
+     * 主队列不知道数据改变了，需要通知：NSManagedObjectContextDidSaveNotification来提示
+     在通知方法里调用
+     [_app.persistentContainer.viewContext mergeChangesFromContextDidSaveNotification:noti];
+     */
+    
+    NSManagedObjectContext *backgroudContext = _app.persistentContainer.newBackgroundContext;
+    [backgroudContext performBlock:^{
+        Student *stu = [NSEntityDescription insertNewObjectForEntityForName:@"Student" inManagedObjectContext:backgroudContext];
+        stu.name = self.nameTF.text;
+        stu.age = [self.ageTF.text intValue];
+        stu.chinese = [self.chineseTF.text intValue];
+        stu.math = [self.mathTF.text intValue];;
+        stu.english = [self.englishTF.text intValue];
+        // 这样的方式创建 关联数据库
+        School *sch = [[School alloc] initWithContext:backgroudContext];
+        sch.schoolName = self.schoolTF.text;
+        stu.studentSchool = sch;
+    }];
 }
 
 
