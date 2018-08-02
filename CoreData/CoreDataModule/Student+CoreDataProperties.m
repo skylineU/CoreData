@@ -2,7 +2,7 @@
 //  Student+CoreDataProperties.m
 //  
 //
-//  Created by yun on 2018/8/1.
+//  Created by yun on 2018/8/2.
 //
 //
 
@@ -19,6 +19,7 @@
 @dynamic english;
 @dynamic math;
 @dynamic name;
+@dynamic sex;
 @dynamic studentSchool;
 
 @end

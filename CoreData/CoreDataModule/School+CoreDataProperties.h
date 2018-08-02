@@ -2,7 +2,7 @@
 //  School+CoreDataProperties.h
 //  
 //
-//  Created by yun on 2018/8/1.
+//  Created by yun on 2018/8/2.
 //
 //
 

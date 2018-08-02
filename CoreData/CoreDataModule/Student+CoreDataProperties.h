@@ -2,7 +2,7 @@
 //  Student+CoreDataProperties.h
 //  
 //
-//  Created by yun on 2018/8/1.
+//  Created by yun on 2018/8/2.
 //
 //
 
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int16_t english;
 @property (nonatomic) int16_t math;
 @property (nullable, nonatomic, copy) NSString *name;
-// School和Student表关联起来后，设置relationship后生成的属性（type设置为To One）
+@property (nonatomic) BOOL sex;
 @property (nullable, nonatomic, retain) School *studentSchool;
 
 @end

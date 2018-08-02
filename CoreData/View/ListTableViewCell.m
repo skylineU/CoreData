@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mathLabel;
 @property (weak, nonatomic) IBOutlet UILabel *englishLabel;
 @property (weak, nonatomic) IBOutlet UILabel *schoolLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 
 
 @end
@@ -29,6 +30,7 @@
     self.mathLabel.text = [NSString stringWithFormat:@"数学:%d",model.math];
     self.englishLabel.text = [NSString stringWithFormat:@"英语:%d",model.english];
     self.schoolLabel.text = model.studentSchool.schoolName;
+    self.sexLabel.text = model.sex ? @"男":@"女";
     
 }
 

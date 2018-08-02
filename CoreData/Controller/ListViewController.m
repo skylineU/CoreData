@@ -197,6 +197,30 @@
  */
 
 /*
+ *版本升级及数据库迁移
+ 1. 选中你的CoreData.xcdatamodeld文件，选择Xcode菜单editor->Add Model Version
+ 比如取名：CoreData 2.xcdatamodel
+ 
+ 2、修改新数据模型CoreData2，在新的文件上添加属性和修改实体。并将Model Version Current 设置为新的model(CoreData2)
+ 
+ 3、删除原来的实体文件，重新生成下的类。
+ 
+ 4、
+ 10.0前：
+ 在persistentStoreCoordinator中添加代码：
+ NSMigratePersistentStoresAutomaticallyOption:自动尝试迁移版本化存储的key
+ NSInferMappingModelAutomaticallyOption:尝试自动创建映射模型的key。
+
+ NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@(YES),NSInferMappingModelAutomaticallyOption:@(YES)};
+
+ [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:nil options:options error:nil];
+ 
+ 10.0后：
+ 直接编译
+ 
+ */
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
